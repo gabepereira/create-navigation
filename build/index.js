@@ -2203,17 +2203,21 @@ exports.default = function (views, config) {
     });
 
     return _react2.default.createElement(
-        _reactRouterDom.Switch,
+        _reactRouterDom.BrowserRouter,
         null,
-        routes.map(function (_ref2, i) {
-            var component = _ref2.component,
-                path = _ref2.path,
-                restrict = _ref2.restrict,
-                exact = _ref2.exact;
-            return _react2.default.createElement(_reactRouterDom.Route, { key: i, exact: exact, path: root + path, render: function render(props) {
-                    return restrict ? _react2.default.createElement(_reactRouterDom.Redirect, { to: { pathname: '/', state: { from: props.location } } }) : _react2.default.cloneElement(component, _extends({}, props));
-                } });
-        })
+        _react2.default.createElement(
+            _reactRouterDom.Switch,
+            null,
+            routes.map(function (_ref2, i) {
+                var component = _ref2.component,
+                    path = _ref2.path,
+                    restrict = _ref2.restrict,
+                    exact = _ref2.exact;
+                return _react2.default.createElement(_reactRouterDom.Route, { key: i, exact: exact, path: root + path, render: function render(props) {
+                        return restrict ? _react2.default.createElement(_reactRouterDom.Redirect, { to: { pathname: '/', state: { from: props.location } } }) : _react2.default.cloneElement(component, _extends({}, props));
+                    } });
+            })
+        )
     );
 };
 
