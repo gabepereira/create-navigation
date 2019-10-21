@@ -8,9 +8,9 @@
     "react-router-dom": "^5.1.2"
   },
   "dependencies": {
-    "react": "^15.5.4",
+    "react": "^16.10.2",
     "react-router-dom": "^5.1.2",
-    "webpack": "^2.6.1"
+    "webpack": "^2.7.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    BrowserRouter,
     Switch,
     Route,
     Redirect
@@ -18,12 +19,14 @@ export default (views, config) => {
     }));
 
     return (
-        <Switch>
-            {routes.map(({component, path, restrict, exact}, i) => (
-                <Route key={i} exact={exact} path={root + path} render={props => restrict ?
-                    <Redirect to={{pathname: '/', state: {from: props.location}}}/> :
-                    React.cloneElement(component, {...props})}/>
-            ))}
-        </Switch>
+        <BrowserRouter>
+            <Switch>
+                {routes.map(({component, path, restrict, exact}, i) => (
+                    <Route key={i} exact={exact} path={root + path} render={props => restrict ?
+                        <Redirect to={{pathname: '/', state: {from: props.location}}}/> :
+                        React.cloneElement(component, {...props})}/>
+                ))}
+            </Switch>
+        </BrowserRouter>
     );
 };
