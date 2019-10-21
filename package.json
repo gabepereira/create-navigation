@@ -1,0 +1,33 @@
+{
+  "name": "create-navigation",
+  "version": "0.0.1",
+  "description": "A lightweight React navigation component.",
+  "main": "build/index.js",
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "react-router-dom": "^5.1.2"
+  },
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-router-dom": "^5.1.2",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": {
+    "name": "Gabriel Pereira",
+    "email": "gabriel6562014@gmail.com"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.5.1"
+  },
+  "license": "ISC"
+}
