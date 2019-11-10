@@ -2186,10 +2186,14 @@ var _reactRouterDom = __webpack_require__(26);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (views, config) {
+    config = {
+        root: config.root || '',
+        init: config.init || false
+    };
     var routes = [];
-
-    var _ref = config || { root: '' },
-        root = _ref.root;
+    var _config = config,
+        root = _config.root,
+        init = _config.init;
 
     Object.keys(views).forEach(function (key) {
         return routes.push({
@@ -2202,23 +2206,37 @@ exports.default = function (views, config) {
         });
     });
 
-    return _react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
-        null,
-        _react2.default.createElement(
-            _reactRouterDom.Switch,
+    var withRouter = function withRouter(child) {
+        return init ? _react2.default.createElement(
+            _reactRouterDom.BrowserRouter,
             null,
-            routes.map(function (_ref2, i) {
-                var component = _ref2.component,
-                    path = _ref2.path,
-                    restrict = _ref2.restrict,
-                    exact = _ref2.exact;
-                return _react2.default.createElement(_reactRouterDom.Route, { key: i, exact: exact, path: root + path, render: function render(props) {
-                        return restrict ? _react2.default.createElement(_reactRouterDom.Redirect, { to: { pathname: '/', state: { from: props.location } } }) : _react2.default.cloneElement(component, _extends({}, props));
-                    } });
-            })
-        )
-    );
+            child
+        ) : child;
+    };
+
+    return withRouter(_react2.default.createElement(
+        _reactRouterDom.Switch,
+        null,
+        routes.map(function (_ref, i) {
+            var component = _ref.component,
+                path = _ref.path,
+                restrict = _ref.restrict,
+                exact = _ref.exact;
+            return _react2.default.createElement(_reactRouterDom.Route, {
+                key: i,
+                exact: exact,
+                path: root + path,
+                render: function render(props) {
+                    return restrict ? _react2.default.createElement(_reactRouterDom.Redirect, {
+                        to: {
+                            pathname: '/',
+                            state: { from: props.location }
+                        }
+                    }) : _react2.default.cloneElement(component, _extends({}, props));
+                }
+            });
+        })
+    ));
 };
 
 /***/ }),

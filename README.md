@@ -1,14 +1,9 @@
 <div align="center">
 <br/>
 <br/>
-<hr/>
-<h2 style="
-    margin: 24px;
-    font-size: 48px;
-">
+<h2>
 create-navigation
 </h2>
-<hr/>
 <br/>
 <br/>
 </div>
