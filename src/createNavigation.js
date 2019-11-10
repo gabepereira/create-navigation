@@ -2,8 +2,12 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 export default (views, config) => {
+    config = {
+        root: config.root || '',
+        init: config.init || false,
+    };
     const routes = [];
-    const { root } = config || { root: '' };
+    const { root, init } = config;
     Object.keys(views).forEach(key =>
         routes.push({
             name: key,
@@ -15,29 +19,30 @@ export default (views, config) => {
         })
     );
 
-    return (
-        <BrowserRouter>
-            <Switch>
-                {routes.map(({ component, path, restrict, exact }, i) => (
-                    <Route
-                        key={i}
-                        exact={exact}
-                        path={root + path}
-                        render={props =>
-                            restrict ? (
-                                <Redirect
-                                    to={{
-                                        pathname: '/',
-                                        state: { from: props.location },
-                                    }}
-                                />
-                            ) : (
-                                React.cloneElement(component, { ...props })
-                            )
-                        }
-                    />
-                ))}
-            </Switch>
-        </BrowserRouter>
+    const withRouter = child =>
+        init ? <BrowserRouter>{child}</BrowserRouter> : child;
+
+    return withRouter(
+        <Switch>
+            {routes.map(({ component, path, restrict, exact }, i) => (
+                <Route
+                    key={i}
+                    exact={exact}
+                    path={root + path}
+                    render={props =>
+                        restrict ? (
+                            <Redirect
+                                to={{
+                                    pathname: '/',
+                                    state: { from: props.location },
+                                }}
+                            />
+                        ) : (
+                            React.cloneElement(component, { ...props })
+                        )
+                    }
+                />
+            ))}
+        </Switch>
     );
 };
