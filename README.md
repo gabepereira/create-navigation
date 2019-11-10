@@ -2,7 +2,7 @@
 <br/>
 <br/>
 <h2>
-createNavigation
+create-navigation
 </h2>
 <br/>
 <br/>
