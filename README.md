@@ -4,10 +4,59 @@
 <h2>
 create-navigation
 </h2>
+<p>An easy way to add routing to your React application!</p>
 <br/>
 <br/>
 </div>
 
+![npm code size in bytes](https://img.shields.io/bundlephobia/min/create-navigation)
+![npm](https://img.shields.io/npm/dw/create-navigation)
+![GitHub stars](https://img.shields.io/github/stars/gabepereira/create-navigation?style=social)
+
+## Getting started
+
+---
+
+**create-navigation** is a basic yet amazing component to make routing an easy task.
+First of all, install it using npm or yarn:
+
+```ssh
+npm install create-navigation --save
+
+yarn add create-navigation
+```
+
+Import create-navigation into your application and start routing:
+
+```jsx
+import { createNavigation } from 'create-navigation';
+import { Home, About, Login } from './my-views-folder';
+
+function App() {
+    return createNavigation({
+        Home: {
+            path: '/home',
+            component: <Home props="foo" />,
+        },
+        About: {
+            path: '/bar/about',
+            component: <About />,
+        },
+        Login: {
+            path: '/foo/bar/login',
+            restrict: true,
+            component: <Login />,
+        },
+    });
+}
+
+export default App;
+```
+
+That's it! Now just access the path of the components and see them being rendered.
+
 ## Authors
+
+---
 
 -   **Gabriel Pereira** - [gabepereira](https://github.com/gabepereira)
