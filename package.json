@@ -1,6 +1,6 @@
 {
   "name": "create-navigation",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A lightweight React navigation component.",
   "main": "build/index.js",
   "peerDependencies": {
