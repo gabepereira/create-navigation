@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-export default (views, config) => {
-    config = {
-        root: config.root || '',
+export default (views, config = Object) => {
+    Object.assign(config, {
+        root: config.root || '/',
         init: config.init || false,
-    };
+    });
     const routes = [];
     const { root, init } = config;
     Object.keys(views).forEach(key =>
