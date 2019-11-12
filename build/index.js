@@ -2185,15 +2185,16 @@ var _reactRouterDom = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (views, config) {
-    config = {
-        root: config.root || '',
+exports.default = function (views) {
+    var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Object;
+
+    Object.assign(config, {
+        root: config.root || '/',
         init: config.init || false
-    };
+    });
     var routes = [];
-    var _config = config,
-        root = _config.root,
-        init = _config.init;
+    var root = config.root,
+        init = config.init;
 
     Object.keys(views).forEach(function (key) {
         return routes.push({
