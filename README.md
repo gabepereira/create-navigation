@@ -25,33 +25,35 @@ yarn add create-navigation
 Import **create-navigation** into your application and start routing:
 
 ```jsx
-import { createNavigation } from 'create-navigation';
+import createNavigation, { withRouter } from 'create-navigation';
 import { Home, About, Login } from './my-awesome-views';
 
-function App() {
-    return createNavigation({
-        Home: {
-            path: '/home',
-            component: <Home props="foo" />,
-        },
-        About: {
-            path: '/bar/about',
-            restrict: false,
-            component: <About />,
-        },
-        Login: {
-            path: '/foo/bar/login',
-            restrict: true,
-            exact: true,
-            component: <Login />,
-        },
-    });
-}
+const App = () => {
+    return withRouter(
+        createNavigation({
+            Home: {
+                path: '/home',
+                component: <Home props="foo" />,
+            },
+            About: {
+                restrict: true,
+                component: <About />,
+            },
+            Login: {
+                path: '/',
+                exact: true,
+                component: <Login />,
+            },
+        })
+    );
+};
 
 export default App;
 ```
 
 That's it! Now just access the path of the components and see them being rendered.
+
+## Documentation
 
 ## Authors
 

@@ -6,20 +6,21 @@ const withRouter = child => <BrowserRouter>{child}</BrowserRouter>;
 export default (views, config = Object) => {
     Object.assign(config, {
         root: config.root || '',
+        exact: config.exact || false,
         restrict: {
             is: false,
             redirect: '/',
         },
     });
     const routes = [];
-    const { root, restrict } = config;
+    const { root, exact, restrict } = config;
     Object.keys(views).forEach(i => {
         routes.push({
             name: i,
             component: views[i].component,
             props: views[i].props,
             path: views[i].path || `/${i.toLowerCase()}`,
-            exact: views[i].exact || false,
+            exact: views[i].exact || exact,
             restrict:
                 views[i].restrict instanceof Object
                     ? {
