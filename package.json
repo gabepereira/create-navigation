@@ -35,5 +35,8 @@
         "babel-preset-env": "^1.5.1",
         "prettier": "^1.19.1"
     },
-    "license": "ISC"
+    "license": "ISC",
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    }
 }
