@@ -1,5 +1,5 @@
 {
-    "name": "create-navigation",
+    "name": "@gabepereira/create-navigation",
     "version": "0.1.4",
     "description": "An easy way to add routing to your React application!",
     "main": "build/index.js",
@@ -19,7 +19,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/gabepereira/create-navigation.git"
+        "url": "git://github.com/gabepereira/create-navigation.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
     },
     "keywords": [],
     "author": {
@@ -35,8 +38,5 @@
         "babel-preset-env": "^1.5.1",
         "prettier": "^1.19.1"
     },
-    "license": "ISC",
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
-    }
+    "license": "ISC"
 }
